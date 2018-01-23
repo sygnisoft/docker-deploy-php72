@@ -9,6 +9,6 @@ RUN apt-get update &&  apt-get install -y libpq-dev libzip-dev git curl nano unz
 RUN docker-php-ext-install pdo pdo_pgsql pgsql zip bcmath gd calendar gmp
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && apt-get update && apt-get -y install yarn
-RUN wget http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O php-cs-fixer && chmod a+x php-cs-fixer && mv php-cs-fixer /usr/local/bin/php-cs-fixer && \
-    wget https://github.com/phpstan/phpstan/releases/download/0.9.1/phpstan.phar -O phpstan.phar && chmod a+x phpstan.phar && mv phpstan.phar /usr/local/bin/phpstan
+RUN wget http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O php-cs-fixer && chmod a+x php-cs-fixer && mv php-cs-fixer /usr/local/bin/php-cs-fixer
+RUN composer global require phpstan/phpstan
 MAINTAINER Cezary Mieczkowski <c.mieczkowski@sygnisoft.com>
