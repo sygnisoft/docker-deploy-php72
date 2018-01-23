@@ -5,7 +5,8 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
     wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
     sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list' && \
     rm -rf /etc/apt/preferences.d/no-debian-php
-RUN apt-get update &&  apt-get install -y libpq-dev libzip-dev git curl nano unzip libpng12-dev libgmp-dev ssh python-dev nodejs npm openssh-client --no-install-recommends && ln -s /usr/bin/nodejs /usr/bin/node
+RUN apt-get update &&  apt-get install -y libpq-dev libzip-dev git curl nano unzip libpng-dev libgmp-dev ssh python-dev nodejs npm openssh-client --no-install-recommends
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN node -v
 RUN docker-php-ext-install pdo pdo_pgsql pgsql zip bcmath gd calendar gmp
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
