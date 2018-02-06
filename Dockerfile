@@ -9,4 +9,6 @@ RUN npm install -g yarn
 RUN wget https://getcomposer.org/composer.phar && mv composer.phar /usr/bin/composer && chmod +x /usr/bin/composer
 RUN wget http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O php-cs-fixer && chmod a+x php-cs-fixer && mv php-cs-fixer /usr/local/bin/php-cs-fixer
 RUN composer global require phpstan/phpstan
+
+RUN apt-get install -y libsqlite3-dev ruby-full rubygems build-essential && gem install mailcatcher && mailcatcher
 WORKDIR /app
