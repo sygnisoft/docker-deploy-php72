@@ -11,4 +11,5 @@ RUN wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.10.3/
 RUN composer global require phpstan/phpstan
 
 RUN apt-get install -y libsqlite3-dev ruby-full rubygems build-essential && gem install mailcatcher && mailcatcher
+RUN echo "memory_limit=-1" > /usr/local/etc/php/conf.d/docker-php-memorylimit.ini
 WORKDIR /app
